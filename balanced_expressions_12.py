@@ -7,14 +7,28 @@ Crea una función que reciba dos cadenas como parámetro (str1, str2)
  *   estén presentes en str1.
 ----------------------------------------------------------------------"""
 
-def balanced_expressions(str1, str2):
-    print(str1)
-    print(str2)
+def balanced_expressions(cadena_1, cadena_2):
+    se_repite_1_en_2 = []
+    for i in cadena_1:
+        for j in cadena_2:
+            if i == j:
+                se_repite_1_en_2.append(j)
+    
+    #para pasar de lista a string
+    s = ''.join(se_repite_1_en_2)
+    print(s)
+                
 
 
 
-str1 = input("Escribe una palabra, frase u oración que te guste >>> ")
-str2 = input("Escribe otra palabra, frase u oración que te guste >>> ")
 
-balanced_expressions(str1, str2)
+
+cadena_1 = input("Escribe una palabra, frase u oración que te guste >>> ")
+cadena_2 = input("Escribe otra palabra, frase u oración que te guste >>> ")
+
+balanced_expressions(cadena_1, cadena_2)
+
+
+
+
 
