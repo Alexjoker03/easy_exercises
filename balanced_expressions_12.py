@@ -9,14 +9,26 @@ Crea una función que reciba dos cadenas como parámetro (str1, str2)
 
 def balanced_expressions(cadena_1, cadena_2):
     se_repite_1_en_2 = []
+    se_repite_2_en_1 = []
+    
+    #para llenar la lista 1 en 2
     for i in cadena_1:
         for j in cadena_2:
             if i == j:
-                se_repite_1_en_2.append(j)
+                se_repite_1_en_2.append(i)
+
     
+    
+    
+    #son las letras que se repiten de la cadena 1 en la 2
+    se_repite_1_en_2 = set(se_repite_1_en_2)
+    se_repite_1_en_2 = list(se_repite_1_en_2)
+   
     #para pasar de lista a string
     s = ''.join(se_repite_1_en_2)
-    print(s)
+    print(f"estas son las letras que se repiten de la cadena 1 en la 2 {s}" )
+    out_1 = 
+    
                 
 
 
