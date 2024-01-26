@@ -8,3 +8,18 @@ Escribe un programa que reciba un texto y transforme lenguaje natural a
 
 --------------------------------------------------------------------------------"""
 
+alfabeto_normal = input("Escribe la oración que quieras pasar a lenguaje hacker >>> ")
+frase_lista = []
+for i in alfabeto_normal:
+    frase_lista.append(i)
+
+print(frase_lista)
+for i in range(len(frase_lista)):
+    if frase_lista[i]  == "a":
+        frase_lista[i] = "$$"
+    elif frase_lista[i] == "b":
+        frase_lista[i] = "%&"
+
+print(frase_lista)     
+s = ''.join(frase_lista)
+print(s)
