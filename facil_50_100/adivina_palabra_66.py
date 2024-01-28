@@ -38,7 +38,7 @@ elif letter_or_phrase == 2:
     
     if choice_letter in word[index_position]:
         for i in word[index_position]:
-
+            #WORKING ON THIS
             if i == choice_letter:
                 positions_for_letter_to_be_replace = int(word[index_position].index(i))
 
@@ -48,6 +48,8 @@ elif letter_or_phrase == 2:
                 word_missing_total = word_missing_total.replace(word_missing_total[positions_for_letter_to_be_replace], choice_letter)
                 
                 print(word_missing_total)
+            else:
+                pass
 
 
 
