@@ -19,8 +19,9 @@ Crea un pequeño juego que consista en adivinar palabras en un número máximo d
 #random.choice(lista o tupla de la cual va a elegir) = elige un elemento aleatorio de una lista
 import random
 
+lives = 3
 word = ["Toy Story", "Monsters inc", "El Lorax", "Mulan", "Star Wars"]
-word_missing = ["T__ St_r_", "M_n__er_", "El L__a_", "M___n", "St__ W___"]
+word_missing = ["T__ St_r_", "M_n__er_ _n_", "El L__a_", "M___n", "St__ W___"]
 word_to_guess = random.choice(word_missing)
 index_position = word_missing.index(word_to_guess)
 
@@ -33,23 +34,33 @@ if letter_or_phrase == 1:
         print("Muy listo, correcto")
     else:
         print("No correcto, dude")
+        lives = lives - 1
+        print(f"Te quedan {lives} vidas, cuidadito Wazauski")
+
 elif letter_or_phrase == 2:
     choice_letter = input("¿Qué letra crees que está presente en el nombre de la película? >>> ")
     
     if choice_letter in word[index_position]:
         for i in word[index_position]:
-            #WORKING ON THIS
-            if i == choice_letter:
-                positions_for_letter_to_be_replace = int(word[index_position].index(i))
 
-                #busco que index position para poder cambiar la letra
-                #cambia todo
-                word_missing_total = word_missing[index_position]
-                word_missing_total = word_missing_total.replace(word_missing_total[positions_for_letter_to_be_replace], choice_letter)
-                
-                print(word_missing_total)
+            position_in_word = word[index_position].index(i)
+            print(f"letra >>> {i}       posicion en la palabra {position_in_word} ")
+            print("------------------------")
+            print(f"i = {i},    choice_letter = {choice_letter}")
+            if i == choice_letter:
+                print("paso al if")
+                peli_a_adivinar_incompleta = word_missing[index_position]
+                new_word = peli_a_adivinar_incompleta.replace(peli_a_adivinar_incompleta[position_in_word], choice_letter)
             else:
                 pass
+
+        print(new_word)    
+                
+
+                                   
+    else:
+        print("Incorrecto")
+        print(f"Te quedan {lives} vidas")
 
 
 
