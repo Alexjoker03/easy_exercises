@@ -22,15 +22,17 @@ import random
 lives = 3
 word = ["Toy Story", "Monsters inc", "El Lorax", "Mulan", "Star Wars"]
 word_missing = ["T__ St_r_", "M_n__er_ _n_", "El L__a_", "M___n", "St__ W___"]
-word_to_guess = random.choice(word_missing)
+word_to_guess = random.choice(word_missing) 
 index_position = word_missing.index(word_to_guess)
+word_to_compare_to = word[index_position]
+
 
 
 print(f"Completa el nombre de la película \n{word_to_guess}")
 letter_or_phrase = int(input("Quieres adivinar la palabra o adivinar una letra \nPresiona 1 para palabra o 2 para letra >>> "))
 if letter_or_phrase == 1:
     choice_to_win = input("¿Qué película es? ")
-    if choice_to_win == word[index_position]:
+    if choice_to_win == word_to_compare_to:
         print("Muy listo, correcto")
     else:
         print("No correcto, dude")
@@ -40,21 +42,32 @@ if letter_or_phrase == 1:
 elif letter_or_phrase == 2:
     choice_letter = input("¿Qué letra crees que está presente en el nombre de la película? >>> ")
     
-    if choice_letter in word[index_position]:
-        for i in word[index_position]:
+    if choice_letter in word_to_compare_to:
+        for i in word_to_compare_to:
 
-            position_in_word = word[index_position].index(i)
+            position_in_word = word_to_compare_to.index(i)
+            print("/////////////////////////////////////////////////////////////////")
             print(f"letra >>> {i}       posicion en la palabra {position_in_word} ")
-            print("------------------------")
+            
             print(f"i = {i},    choice_letter = {choice_letter}")
+            print("/////////////////////////////////////////////////////////////////")
             if i == choice_letter:
-                print("paso al if")
-                peli_a_adivinar_incompleta = word_missing[index_position]
-                new_word = peli_a_adivinar_incompleta.replace(peli_a_adivinar_incompleta[position_in_word], choice_letter)
+                print("------------------------------")
+                print(f"entra al if en letra >>> {i}")
+                print(f"Posición en el string >>> {position_in_word}")
+                print("------------------------------")
+                
+                # print(type(word_to_guess))
+                # print(type(word_to_guess[position_in_word]))
+                # word_to_guess = word_to_guess.replace(change_this, choice_letter)
+                
+
+                print(word_to_guess)
+                
             else:
                 pass
 
-        print(new_word)    
+        print(word_to_guess)    
                 
 
                                    
