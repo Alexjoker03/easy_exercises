@@ -51,9 +51,10 @@ elif letter_or_phrase == 2:
     choice_letter = input("¿Qué letra crees que está presente en el nombre de la película? >>> ")
     
     if choice_letter in word_to_compare_to:
-        print(choice_letter)
+        positions = []
+        position_in_word = -1
         for i in word_to_compare_to_2:
-            position_in_word = word_to_compare_to_2.index(i,0,len(word_to_compare_to))
+            position_in_word = word_to_compare_to_2.index(i, position_in_word + 1)
             print(f"Posición en el string >>> {position_in_word}")
 
             if i == choice_letter:
