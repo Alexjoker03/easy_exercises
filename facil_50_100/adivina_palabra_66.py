@@ -67,9 +67,13 @@ while lives >= 1:
                 
                 if i == choice_letter:
                     word_to_guess_2[position_in_word] = i
+                    print("------------------------")
+                    print(f"Muy bien la letra --- {choice_letter} --- sí se encuentra en el nombre de la película ")
                    
         else:
             lives = lives - 1
+            print("--------------------------------")
+            print(f"Ahora tienes una vida menos. Vidas: {lives}")
 
         word_to_guess = ''.join(word_to_guess_2)  
         if word_to_guess_2 == word_to_compare_to_2:
