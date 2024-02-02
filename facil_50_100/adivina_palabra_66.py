@@ -22,7 +22,7 @@ import random
 
 
 lives = 3
-word = ["Toy Story", "Monsters inc", "El Lorax", "Mulan", "Star Wars"]
+word = ["toy Story", "monsters inc", "el lorax", "mulan", "star Wars"]
 word_to_guess = random.choice(word)
 word_to_guess_in_list = []
 for i in word_to_guess:
@@ -38,9 +38,12 @@ for i in range(((len(word_to_guess_in_list)//2) -1)):
 word_to_guess_in_str = ''.join(word_to_guess_in_list)
 
 while lives >= 1:
-    print(f"Completa el nombre de la película \n{word_to_guess_in_list}")
-    print(f"Tienes {lives} oportunidades para adivinar ")
+    print(f"Completa el nombre de la película \n{word_to_guess_in_str} \n")
+    print(f"Tienes {lives} oportunidades para adivinar \n ")
     letter_or_phrase = int(input("Quieres adivinar la palabra o adivinar una letra \nPresiona 1 para palabra o 2 para letra >>> "))
+    
+    
+
     if letter_or_phrase == 1:
         choice_to_win = input("¿Qué película es? ")
         if choice_to_win == word_to_guess:
@@ -56,19 +59,19 @@ while lives >= 1:
                 break
 
     elif letter_or_phrase == 2:
-        choice_letter = input("¿Qué letra crees que está presente en el nombre de la película? >>> ")
-    
-        if choice_letter in word_to_guess:
+        choice_letter = input("¿Qué letra crees que está presente en el nombre de la película? \n>>> ")
         
+        if choice_letter in word_to_guess:
+            
             position_in_word = -1
             for i in word_to_guess:
-                position_in_word = word_to_guess.index(i, position_in_word + 1)
-                
+                    
+                    
                 if i == choice_letter:
+                    position_in_word = word_to_guess.index(i, position_in_word + 1)
                     word_to_guess_in_list[position_in_word] = i
-                    print("------------------------")
-                    print(f"Muy bien la letra --- {choice_letter} --- sí se encuentra en el nombre de la película ")
-                   
+                        
+                    
         else:
             lives = lives - 1
             print("--------------------------------")
@@ -80,6 +83,7 @@ while lives >= 1:
         word_to_guess_in_str = ''.join(word_to_guess_in_list)  
         if word_to_guess_in_str == word_to_guess:
             print("Eres muy listo, adivinaste la película")
+            print(f"La película fue {word_to_guess_in_str}")
             lives = 0  
 
                 
