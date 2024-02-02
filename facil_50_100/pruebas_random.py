@@ -1,13 +1,28 @@
 import random
 
+
+
 lives = 3
 word = ["Toy Story", "Monsters inc", "El Lorax", "Mulan", "Star Wars"]
-word_missing = ["T__ St_r_", "M_n__er_ _n_", "El L__a_", "M___n", "St__ W___"]
 word_to_guess = random.choice(word)
-word_to_guess_2 = []
+word_to_guess_in_list = []
 for i in word_to_guess:
-    word_to_guess_2.append(i)
-    
+    word_to_guess_in_list.append(i)
+
+
+for i in range(((len(word_to_guess_in_list)//2) -1)):
+    index_letter_to_be_hide = random.randint(0, len(word_to_guess_in_list))
+    if word_to_guess_in_list[index_letter_to_be_hide - 1] != " ":
+        word_to_guess_in_list[index_letter_to_be_hide - 1] = "_"
+    else:
+        pass    
+
+print("----------------------------")
+s = ''.join(word_to_guess_in_list)
+print(s)
+print("----------------------------")
+ 
+
 
 
 

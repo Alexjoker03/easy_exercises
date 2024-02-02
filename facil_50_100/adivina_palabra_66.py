@@ -19,39 +19,38 @@ Crea un pequeño juego que consista en adivinar palabras en un número máximo d
 #random.choice(lista o tupla de la cual va a elegir) = elige un elemento aleatorio de una lista
 import random
 
+
+
 lives = 3
 word = ["Toy Story", "Monsters inc", "El Lorax", "Mulan", "Star Wars"]
-word_missing = ["T__ St_r_", "M_n__er_ _n_", "El L__a_", "M___n", "St__ W___"]
-word_to_guess = random.choice(word_missing) 
-index_position = word_missing.index(word_to_guess)
-word_to_compare_to = word[index_position]
-
-word_to_guess_2 = []
+word_to_guess = random.choice(word)
+word_to_guess_in_list = []
 for i in word_to_guess:
-    word_to_guess_2.append(i)
-
-word_to_compare_to_2 = []
-for i in word_to_compare_to:
-    word_to_compare_to_2.append(i)
+    word_to_guess_in_list.append(i)
 
 
-
-
+for i in range(((len(word_to_guess_in_list)//2) -1)):
+    index_letter_to_be_hide = random.randint(0, len(word_to_guess_in_list))
+    if word_to_guess_in_list[index_letter_to_be_hide - 1] != " ":
+        word_to_guess_in_list[index_letter_to_be_hide - 1] = "_"
+    else:
+        pass    
+word_to_guess_in_str = ''.join(word_to_guess_in_list)
 
 while lives >= 1:
-    print(f"Completa el nombre de la película \n{word_to_guess}")
+    print(f"Completa el nombre de la película \n{word_to_guess_in_list}")
     print(f"Tienes {lives} oportunidades para adivinar ")
     letter_or_phrase = int(input("Quieres adivinar la palabra o adivinar una letra \nPresiona 1 para palabra o 2 para letra >>> "))
     if letter_or_phrase == 1:
         choice_to_win = input("¿Qué película es? ")
-        if choice_to_win == word_to_compare_to:
+        if choice_to_win == word_to_guess:
             print("Muy listo, correcto")
             lives = 0
         else:
 
             print("No correcto, dude")
             lives = lives - 1
-            print(f"Te quedan {lives} vidas, cuidadito Wazauski")
+            print(f"Te quedan {lives} vidas, cuidadito Wazauski \n")
             if lives == 0:
                 print("ya se ti acabaron las vidas, adiós")
                 break
@@ -59,24 +58,27 @@ while lives >= 1:
     elif letter_or_phrase == 2:
         choice_letter = input("¿Qué letra crees que está presente en el nombre de la película? >>> ")
     
-        if choice_letter in word_to_compare_to:
+        if choice_letter in word_to_guess:
         
             position_in_word = -1
-            for i in word_to_compare_to_2:
-                position_in_word = word_to_compare_to_2.index(i, position_in_word + 1)
+            for i in word_to_guess:
+                position_in_word = word_to_guess.index(i, position_in_word + 1)
                 
                 if i == choice_letter:
-                    word_to_guess_2[position_in_word] = i
+                    word_to_guess_in_list[position_in_word] = i
                     print("------------------------")
                     print(f"Muy bien la letra --- {choice_letter} --- sí se encuentra en el nombre de la película ")
                    
         else:
             lives = lives - 1
             print("--------------------------------")
-            print(f"Ahora tienes una vida menos. Vidas: {lives}")
+            print(f"Ahora tienes una vida menos. Vidas: {lives} \n")
+            print("---------------------------------")
+            if lives == 0:
+                print("Se te acabaron las vidas, perdistess Burro (el de Shrek)")
 
-        word_to_guess = ''.join(word_to_guess_2)  
-        if word_to_guess_2 == word_to_compare_to_2:
+        word_to_guess_in_str = ''.join(word_to_guess_in_list)  
+        if word_to_guess_in_str == word_to_guess:
             print("Eres muy listo, adivinaste la película")
             lives = 0  
 
