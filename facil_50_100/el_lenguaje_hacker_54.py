@@ -55,11 +55,9 @@ for i in range(len(alfabeto_normal)):
         nuevo_string.append(alfabeto_normal[i])    
 
 
-
-
 resultado =''.join(nuevo_string)    
 print(f"Este es el resultado con list {resultado}")   
- 
+
 
 
 
